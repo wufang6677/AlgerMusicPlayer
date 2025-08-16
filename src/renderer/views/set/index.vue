@@ -492,7 +492,7 @@
               </div>
             </div>
 
-            <div
+            <!-- <div
               class="set-item cursor-pointer hover:text-green-500 hover:bg-green-950 transition-all"
               @click="openAuthor"
             >
@@ -507,12 +507,12 @@
                   <i class="ri-github-line"></i>{{ t('settings.about.gotoGithub') }}
                 </n-button>
               </div>
-            </div>
+            </div> -->  
           </div>
         </div>
 
         <!-- 捐赠支持 -->
-        <div id="donation" ref="donationRef" class="settings-section">
+        <!-- <div id="donation" ref="donationRef" class="settings-section">
           <div class="settings-section-title">{{ t('settings.sections.donation') }}</div>
           <div class="settings-section-content">
             <div class="set-item">
@@ -529,7 +529,7 @@
             </div>
             <donation-list v-if="isDonationListVisible" />
           </div>
-        </div>
+        </div> -->
       </div>
       <play-bottom />
     </n-scrollbar>
@@ -572,8 +572,8 @@ import { useI18n } from 'vue-i18n';
 
 import localData from '@/../main/set.json';
 import { getUserDetail } from '@/api/login';
-import Coffee from '@/components/Coffee.vue';
-import DonationList from '@/components/common/DonationList.vue';
+// import Coffee from '@/components/Coffee.vue';
+// import DonationList from '@/components/common/DonationList.vue';
 import PlayBottom from '@/components/common/PlayBottom.vue';
 import LanguageSwitcher from '@/components/LanguageSwitcher.vue';
 import ClearCacheSettings from '@/components/settings/ClearCacheSettings.vue';
@@ -665,9 +665,9 @@ const handleAutoThemeChange = (value: boolean) => {
   settingsStore.setAutoTheme(value);
 };
 
-const openAuthor = () => {
-  window.open(setData.value.authorUrl);
-};
+// const openAuthor = () => {
+//   window.open(setData.value.authorUrl);
+// };
 
 const restartApp = () => {
   window.electron.ipcRenderer.send('restart');
@@ -843,12 +843,12 @@ watch(
   }
 );
 
-const isDonationListVisible = ref(localStorage.getItem('donationListVisible') !== 'false');
+// const isDonationListVisible = ref(localStorage.getItem('donationListVisible') !== 'false');
 
-const toggleDonationList = () => {
-  isDonationListVisible.value = !isDonationListVisible.value;
-  localStorage.setItem('donationListVisible', isDonationListVisible.value.toString());
-};
+// const toggleDonationList = () => {
+//   isDonationListVisible.value = !isDonationListVisible.value;
+//   localStorage.setItem('donationListVisible', isDonationListVisible.value.toString());
+// };
 
 // 清除缓存相关
 const showClearCacheModal = ref(false);
@@ -929,7 +929,7 @@ const settingSections = [
   { id: 'network', title: t('settings.sections.network'), electron: true },
   { id: 'system', title: t('settings.sections.system'), electron: true },
   { id: 'regard', title: t('settings.sections.regard') },
-  { id: 'donation', title: t('settings.sections.donation') }
+  // { id: 'donation', title: t('settings.sections.donation') }
 ];
 
 // 当前激活的分类

@@ -105,7 +105,8 @@
             <i class="iconfont ri-refresh-line"></i>
             <span>{{ t('comp.searchBar.refresh') }}</span>
           </div>
-          <div class="menu-item" @click="toGithubRelease">
+          <!-- 更新信息 -->
+          <!-- <div class="menu-item" @click="toGithubRelease">
             <i class="iconfont ri-github-fill"></i>
             <span>{{ t('comp.searchBar.currentVersion') }}</span>
             <div class="version-info">
@@ -114,16 +115,16 @@
                 New {{ updateInfo.latestVersion }}
               </n-tag>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </n-popover>
-
-    <coffee :alipay-q-r="alipay" :wechat-q-r="wechat">
+    <!-- github跳转 -->
+    <!-- <coffee :alipay-q-r="alipay" :wechat-q-r="wechat">
       <div class="github" @click="toGithub">
         <i class="ri-github-fill"></i>
       </div>
-    </coffee>
+    </coffee> -->
   </div>
 </template>
 
@@ -134,9 +135,9 @@ import { useRouter } from 'vue-router';
 
 import { getSearchKeyword } from '@/api/home';
 import { getUserDetail } from '@/api/login';
-import alipay from '@/assets/alipay.png';
-import wechat from '@/assets/wechat.png';
-import Coffee from '@/components/Coffee.vue';
+// import alipay from '@/assets/alipay.png';
+// import wechat from '@/assets/wechat.png';
+// import Coffee from '@/components/Coffee.vue';
 import { SEARCH_TYPES, USER_SET_OPTIONS } from '@/const/bar-const';
 import { useZoom } from '@/hooks/useZoom';
 import { useSearchStore } from '@/store/modules/search';
@@ -301,9 +302,9 @@ const selectItem = async (key: string) => {
   }
 };
 
-const toGithub = () => {
-  window.open('http://donate.alger.fun/download', '_blank');
-};
+// const toGithub = () => {
+//   window.open('http://donate.alger.fun/download', '_blank');
+// };
 
 const updateInfo = ref<UpdateResult>({
   hasUpdate: false,
@@ -323,13 +324,13 @@ const checkForUpdates = async () => {
   }
 };
 
-const toGithubRelease = () => {
-  if (updateInfo.value.hasUpdate) {
-    settingsStore.showUpdateModal = true;
-  } else {
-    window.open('https://github.com/algerkong/AlgerMusicPlayer/releases', '_blank');
-  }
-};
+// const toGithubRelease = () => {
+//   if (updateInfo.value.hasUpdate) {
+//     settingsStore.showUpdateModal = true;
+//   } else {
+//     window.open('https://github.com/algerkong/AlgerMusicPlayer/releases', '_blank');
+//   }
+// };
 </script>
 
 <style lang="scss" scoped>
